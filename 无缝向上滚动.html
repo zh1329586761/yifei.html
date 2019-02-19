@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>无缝向上滚动</title>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+			}
+			
+			li {
+				list-style: none;
+			}
+			
+			.box {
+				margin: 20px;
+				width: 320px;
+				height: 195px;
+				border: 1px solid #ddd;
+				padding: 10px;
+				overflow: hidden;
+			}
+			
+			.box ul li {
+				line-height: 25px;
+			}
+		</style>
+
+		<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<div class="box">
+			<ul>
+				<li>111风韵雍容未甚都，尊前甘橘可为奴。谁怜流落江湖上，玉骨冰肌未肯枯。
+					谁教并蒂连枝摘，醉后明皇倚太真。居士擘开真有意，要吟风味两家新。
+				</li>
+				<li>2222
+					竹凉侵卧内，野月满庭隅。
+					重露成涓滴，稀星乍有无。
+					暗飞萤自照，水宿鸟相呼。
+					万事干戈里，空悲清夜徂。
+				</li>
+				<li>3333
+					蜂蝶去纷纷，香风隔岸闻。
+					欲知花岛处，水上觅红云。
+				</li>
+				<li>4444
+					鸣骹直上一千尺，天静无风声更干。
+					碧眼胡儿三百骑，尽提金勒向云看。
+				</li>
+				<li>5555
+					昨夜风开露井桃，未央前殿月轮高。 
+					平阳歌舞新承宠，帘外春寒赐锦袍。
+				</li>
+				<li>AAA风韵雍容未甚都，尊前甘橘可为奴。谁怜流落江湖上，玉骨冰肌未肯枯。
+					谁教并蒂连枝摘，醉后明皇倚太真。居士擘开真有意，要吟风味两家新。
+				</li>
+				<li>BBB
+					竹凉侵卧内，野月满庭隅。
+					重露成涓滴，稀星乍有无。
+					暗飞萤自照，水宿鸟相呼。
+					万事干戈里，空悲清夜徂。
+				</li>
+				<li>CCC
+					蜂蝶去纷纷，香风隔岸闻。
+					欲知花岛处，水上觅红云。
+				</li>
+				<li>DDD
+					鸣骹直上一千尺，天静无风声更干。
+					碧眼胡儿三百骑，尽提金勒向云看。
+				</li>
+				<li>EEE
+					昨夜风开露井桃，未央前殿月轮高。 
+					平阳歌舞新承宠，帘外春寒赐锦袍。
+				</li>
+			</ul>
+		</div>
+		<script>
+			(function($) {
+				$.fn.scrollTop = function(options) {
+					var defaults = {
+						speed: 30
+					}
+					var opts = $.extend(defaults, options);
+					this.each(function() {
+						var $timer;
+						var scroll_top = 0;
+						var obj = $(this);
+						var $height = obj.find("ul").height();
+						obj.find("ul").clone().appendTo(obj);
+						obj.hover(function() {
+							clearInterval($timer);
+						}, function() {
+							$timer = setInterval(function() {
+								scroll_top++;
+								if(scroll_top > $height) {
+									scroll_top = 0;
+								}
+								obj.find("ul").first().css("margin-top", -scroll_top);
+							}, opts.speed);
+						}).trigger("mouseleave");
+					})
+				}
+			})(jQuery)
+		</script>
+		<script>
+			$(function() {
+				$(".box").scrollTop({
+					speed: 30 //数值越大 速度越慢
+				});
+			})
+		</script>
+	</body>
+
+</html>
+
+
+								<!--<li>
+									<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;前些日子，偶然在网上下载了贵处的“高效e人”，使用后感觉确实挺方便。我将原来使用的4个软件中的信息全部装在了里面，正如你们所说“有了高效e人的帮助，您能高效地管理所有事务，彻底告别忙乱的状态，您将能高效地享受工作，又快乐地享受生活！”</p>
+									<p class="name"> - 刘先生</p>
+								</li>
+								<li>
+									<p>购买了您的软件，感觉确实很好用，帮助我改掉了拖拉、健忘的老毛病，让我的工作、生活更有了规律，我想把它推荐给我的朋友、同事。非常感谢！</p>
+									<p class="name"> - 龙先生</p>
+								</li>
+								<li>
+									<p>你好，我用了你们的软件有一段时间了。软件做的非常不错，我身边也有不少人在用。</p>
+									<p class="name"> - 张先生</p>
+								</li>
+								<li>
+									<p>这个软件非常好用：开机自动运行、免安装绿色环境、及时提醒等等。我用这个软件是想代替我的工作日志，一个Word文件，它不能提示我一些重要工作，使用了效能工作任务管理软件，就解决了这个问题。</p><p class="name"> - 李先生</p></li>
+								<li>
+									<p>目前为止我对这个产品非常满意，有时我都在好奇它到底是有多大的空间来满足我巨大的任务列表。</p>
+									<p class="name"> - 左小姐</p>
+								</li>
+								<li>
+									<p>前些日子，偶然在网上下载了贵处的“高效e人”，使用后感觉确实挺方便。我将原来使用的4个软件中的信息全部装在了里面，正如你们所说“有了高效e人的帮助，您能高效地管理所有事务，彻底告别忙乱的状态，您将能高效地享受工作，又快乐地享受生活！”</p>
+									<p class="name"> - 刘先生</p>
+								</li>
+								<li>
+									<p>购买了您的软件，感觉确实很好用，帮助我改掉了拖拉、健忘的老毛病，让我的工作、生活更有了规律，我想把它推荐给我的朋友、同事。非常感谢！</p><p class="name"> - 龙先生</p></li><li><p>你好，我用了你们的软件有一段时间了。软件做的非常不错，我身边也有不少人在用。</p>
+									<p class="name"> - 张先生</p>
+								</li>
+								<li>
+									<p>这个软件非常好用：开机自动运行、免安装绿色环境、及时提醒等等。我用这个软件是想代替我的工作日志，一个Word文件，它不能提示我一些重要工作，使用了效能工作任务管理软件，就解决了这个问题。</p>
+									<p class="name"> - 李先生</p>
+								</li>
+								<li>
+									<p>目前为止我对这个产品非常满意，有时我都在好奇它到底是有多大的空间来满足我巨大的任务列表。</p>
+									<p class="name"> - 左小姐</p>
+								</li>-->
