@@ -5,4 +5,4 @@
 
 ![image](https://github.com/zh1329586761/yifei.html/blob/master/images/7V(~QT%603QUA%24%24X50C13W9HC.png)
 
-![image](https://github.com/zh1329586761/yifei.html/blob/master/images/7V(2.png)
+![image](https://github.com/zh1329586761/yifei.html/blob/master/images/2.png)
